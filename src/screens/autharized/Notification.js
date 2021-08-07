@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 import { Palette } from '../../theme/Colors';
 import { Input, Button } from 'react-native-elements';
 import { boldTextStyle, defaultScreen, smallBoldText } from '../../theme/Constants';
@@ -33,16 +33,29 @@ const Notification = () => {
 
     return (
         <View style={defaultScreen}>
-            <Text>NOTIFICATION</Text>
-            <Button
-                title="SEND NOTIFICATION"
-                raised
-                onPress={showNotification}
-            />
+            <TouchableOpacity onPress={showNotification}>
+                <View style={styles.bigButton}>
+                    <Text style={styles.text}>SEND NOTIFICATION</Text>
+                </View>
+            </TouchableOpacity>
         </View>
     )
 }
 
 export default Notification
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    bigButton: {
+        backgroundColor: Palette.red,
+        height: 200.0,
+        width: 200.0,
+        borderRadius: 100.0,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    text: {
+        color: 'white',
+        fontWeight: '700',
+        fontSize: 18
+    }
+})
